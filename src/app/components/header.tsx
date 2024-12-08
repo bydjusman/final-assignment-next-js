@@ -6,7 +6,7 @@ import { AiOutlineHeart, AiOutlineBell } from "react-icons/ai";
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-white text-gray-700 border-b py-8 w-[1440px] h-[124px]">
+    <header className="relative flex flex-col items-center justify-center gap-6 px-5 w-full bg-white py-6">
       <div className="container mx-auto px-4 flex justify-between items-center h-full">
         {/* Left Section */}
         <div className="flex items-center gap-4">
