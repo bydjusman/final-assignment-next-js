@@ -1,10 +1,15 @@
-import Content from "./components/content";
+import React from 'react'
+import Content from './components/content'
+import NewCar from './components/newcar'
 
-export default function Home() {
+
+const page = () => {
   return (
-  <div>
-  <Content/>
-  </div>
-  );
+    <div>
+      <NewCar/>
+      <Content/>
+    </div>
+  )
 }
 
+export default page
