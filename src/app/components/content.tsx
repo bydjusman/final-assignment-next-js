@@ -1,4 +1,7 @@
-export default function Home() {
+import Link from "next/link";
+import Image from "next/image";
+
+export default function Content() {
   //(4 Box)
   const popularCars = [
     {
@@ -216,7 +219,7 @@ export default function Home() {
                 <img
                   src={car.image}
                   alt={car.name}
-                  className="w-64 h-20 object-cover mx-auto my-4"
+                  className="w-72 h-20 object-cover mx-auto my-4"
                 />
                 <div className="flex justify-between text-gray-500 text-sm mb-4">
                   <span>{car.fuel}</span>
@@ -275,6 +278,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

@@ -1,13 +1,15 @@
 import React from 'react'
 import Content from './components/content'
-import NewCar from './components/newcar'
+import Category from './components/category'
+import DetailCar from './components/detailcar'
 
 
 const page = () => {
   return (
     <div>
-      <NewCar/>
       <Content/>
+      <Category/>
+      <DetailCar/>
     </div>
   )
 }
