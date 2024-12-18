@@ -1,111 +1,131 @@
+import Image from "next/image";
+
 export default function DetailCar() {
-    return (
-      <div className="flex min-h-screen bg-gray-50 p-8">
-        {/* Sidebar Filters */}
-        <div className="p-4 w-1/4 bg-gray-100 rounded-md">
-          {/* Car Type Filter */}
-          <div>
-            <h3 className="font-semibold mb-2">Type</h3>
-            {["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"].map((type) => (
-              <div key={type} className="flex items-center mb-1">
-                <input type="checkbox" className="mr-2" checked />
-                <label>{type} (10)</label>
-              </div>
-            ))}
-          </div>
-  
-          {/* Capacity Filter */}
-          <div className="mt-4">
-            <h3 className="font-semibold mb-2">Capacity</h3>
-            {["2 Person", "4 Person", "6 Person", "8 or More"].map((cap) => (
-              <div key={cap} className="flex items-center mb-1">
-                <input type="radio" name="capacity" className="mr-2" checked />
-                <label>{cap}</label>
-              </div>
-            ))}
-          </div>
-  
-          {/* Price Filter */}
-          <div className="mt-4">
-            <h3 className="font-semibold mb-2">Price</h3>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              defaultValue="80"
-              className="w-full"
-            />
-            <p className="text-sm mt-2">Max: <b>$100.00</b></p>
-          </div>
+  return (
+    <div className="flex bg-gray-50 min-h-screen">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white p-6 shadow-md">
+        {/* Type Filter */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold mb-3">Type</h3>
+          {["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"].map((type, index) => (
+            <label key={index} className="flex items-center mb-2">
+              <input type="checkbox" className="mr-2" />
+              {type} <span className="text-gray-400 ml-1">(10)</span>
+            </label>
+          ))}
         </div>
-  
-        {/* Main Content */}
-        <div className="w-3/4 ml-8">
-          {/* Car Card */}
-          <div className="bg-white rounded-lg shadow-md p-4">
-            <h2 className="text-2xl font-semibold">Nissan GT - R</h2>
-            <p className="text-gray-500 mb-4">440+ Reviews | ★★★★☆</p>
-  
+
+        {/* Capacity Filter */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold mb-3">Capacity</h3>
+          {["2 Person", "4 Person", "6 Person", "8 or More"].map((capacity, index) => (
+            <label key={index} className="flex items-center mb-2">
+              <input type="checkbox" className="mr-2" />
+              {capacity} <span className="text-gray-400 ml-1">(10)</span>
+            </label>
+          ))}
+        </div>
+
+        {/* Price Filter */}
+        <div>
+          <h3 className="text-lg font-semibold mb-3">Price</h3>
+          <input type="range" max="100" className="w-full" />
+          <div className="text-center mt-2">Max: <span className="font-semibold">$100.00</span></div>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 p-8">
+        {/* Car Card */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="flex">
             {/* Car Image */}
-            <div className="bg-blue-100 rounded-md mb-4">
-              <img
-                src="/Rental Summary.png"
-                alt="Nissan GT-R"
-                className="w-fit rounded-md"
+            <div className="w-1/3">
+              <Image
+                src="/car.png"
+                alt="Car Image"
+                width={300}
+                height={200}
+                className="rounded-lg object-cover"
               />
             </div>
-  
-            {/* Description */}
-            <p className="text-sm text-gray-700">
-              NISMO has become the embodiment of Nissan's outstanding performance,
-              inspired by the most unforgiving proving ground, the "race track".
-            </p>
-  
-            {/* Details */}
-            <div className="flex justify-between mt-4">
+
+            {/* Car Details */}
+            <div className="ml-6 flex-1">
+              <h2 className="text-2xl font-bold mb-2">Nissan GT - R</h2>
+              <p className="text-gray-500">
+                NISMO has become the embodiment of Nissan's outstanding performance, inspired by the
+                most unforgiving proving ground, the "race track".
+              </p>
+
+              <div className="mt-4 grid grid-cols-2 gap-4 text-gray-600">
+                <div>Type: <span className="font-medium">Sport</span></div>
+                <div>Capacity: <span className="font-medium">2 Person</span></div>
+                <div>Steering: <span className="font-medium">Manual</span></div>
+                <div>Gasoline: <span className="font-medium">70L</span></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Price and Button */}
+          <div className="mt-6 flex justify-between items-center">
+            <div>
+              <span className="text-2xl font-bold">$80.00</span>
+              <span className="text-gray-400 ml-2 line-through">$100.00</span>
+            </div>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
+              Rent Now
+            </button>
+          </div>
+
+          {/* Reviews */}
+          <div className="mt-6">
+            <h3 className="text-lg font-semibold mb-4">Reviews</h3>
+            <div className="space-y-4">
+              {/* Review 1 */}
+              <div className="border-b pb-2">
+                <div className="flex items-center">
+                  <Image
+                    src="/profile.png"
+                    alt="User 1"
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
+                  <div className="ml-2">
+                    <p className="font-semibold">Alex Stanton</p>
+                    <p className="text-gray-400 text-sm">CEO at Bukalapak</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mt-2">
+                  We are very happy with the service from the MORENT App. The price is low, and the variety of cars is excellent.
+                </p>
+              </div>
+
+              {/* Review 2 */}
               <div>
-                <p>Type: <b>Sport</b></p>
-                <p>Capacity: <b>2 Person</b></p>
-                <p>Gasoline: <b>70L</b></p>
+                <div className="flex items-center">
+                  <Image
+                    src="/girl.jpeg"
+                    alt="User 2"
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
+                  <div className="ml-2">
+                    <p className="font-semibold">Skylar Dias</p>
+                    <p className="text-gray-400 text-sm">CEO at Amazon</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mt-2">
+                  The service was excellent, and the cars were comfortable. I highly recommend using this application.
+                </p>
               </div>
-              <div className="text-right">
-                <p className="text-xl font-semibold text-blue-600">$80.00/day</p>
-                <p className="line-through text-gray-500">$100.00</p>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-md mt-2">
-                  Rent Now
-                </button>
-              </div>
-            </div>
-          </div>
-  
-          {/* Reviews Section */}
-          <h3 className="text-xl font-semibold mt-8 mb-4">Reviews (13)</h3>
-          <div className="bg-white p-4 rounded-md shadow-sm mb-4">
-            <h4 className="font-semibold">Alex Stanton</h4>
-            <p className="text-xs text-gray-500">CEO at Bukalapak</p>
-            <p className="mt-2 text-sm">
-              Morent has a low price and a large variety of cars. The service is
-              excellent!
-            </p>
-            <div className="flex justify-between mt-2">
-              <p className="text-gray-400 text-xs">21 July 2022</p>
-              <p className="text-yellow-400">★★★★☆</p>
-            </div>
-          </div>
-  
-          <div className="bg-white p-4 rounded-md shadow-sm mb-4">
-            <h4 className="font-semibold">Skylar Dias</h4>
-            <p className="text-xs text-gray-500">CEO at Amazon</p>
-            <p className="mt-2 text-sm">
-              Great service and comfortable cars. Highly recommended!
-            </p>
-            <div className="flex justify-between mt-2">
-              <p className="text-gray-400 text-xs">20 July 2022</p>
-              <p className="text-yellow-400">★★★★☆</p>
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
-  
+      </main>
+    </div>
+  );
+}

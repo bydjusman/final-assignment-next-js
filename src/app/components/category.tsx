@@ -72,7 +72,7 @@ export default function Category() {
   const handleFilterChange = (key: string, value: any) => {
     setFilters((prev) => ({
       ...prev,
-      [key]: value,
+      [key]: Array.isArray(value) ? value : value === "" ? [] : value,
     }));
   };
 
