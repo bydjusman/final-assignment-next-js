@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image"; // Import Next.js Image
 
-// Car Data
 const cars = [
   {
     id: 1,
@@ -68,15 +68,13 @@ export default function Category() {
     price: 100,
   });
 
-  // Handle filter changes
-  const handleFilterChange = (key: string, value: any) => {
+  const handleFilterChange = (key: string, value: string | number | string[]) => {
     setFilters((prev) => ({
       ...prev,
       [key]: Array.isArray(value) ? value : value === "" ? [] : value,
     }));
   };
 
-  // Filter cars
   const filteredCars = cars.filter(
     (car) =>
       (!filters.type.length || filters.type.includes(car.type)) &&
@@ -86,11 +84,9 @@ export default function Category() {
 
   return (
     <div className="flex bg-gray-100 min-h-screen">
-      {/* Sidebar */}
       <aside className="w-1/4 bg-white p-4 shadow-md">
         <h2 className="font-bold text-lg mb-4">Filters</h2>
 
-        {/* Type Filter */}
         <div>
           <h3 className="font-semibold">Type</h3>
           {["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"].map((type) => (
@@ -113,7 +109,6 @@ export default function Category() {
           ))}
         </div>
 
-        {/* Category Filter */}
         <div className="mt-4">
           <h3 className="font-semibold">Category</h3>
           {["2 Person", "4 Person", "6 Person", "8 or More"].map((cat) => (
@@ -136,7 +131,6 @@ export default function Category() {
           ))}
         </div>
 
-        {/* Price Filter */}
         <div className="mt-4">
           <h3 className="font-semibold">Price</h3>
           <input
@@ -151,7 +145,6 @@ export default function Category() {
         </div>
       </aside>
 
-      {/* Car Listings */}
       <main className="w-3/4 p-6">
         <h2 className="font-bold text-2xl mb-4">Category</h2>
         <div className="grid grid-cols-2 gap-6">
@@ -160,10 +153,12 @@ export default function Category() {
               key={car.id}
               className="bg-white p-4 shadow rounded-lg flex flex-col items-center"
             >
-              <img
+              <Image
                 src={car.image}
                 alt={car.name}
-                className="w-48 h-24 object-contain"
+                width={192}
+                height={96}
+                className="object-contain"
               />
               <h3 className="font-bold mt-2">{car.name}</h3>
               <p>{car.type}</p>

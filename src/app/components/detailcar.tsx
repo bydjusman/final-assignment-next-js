@@ -55,8 +55,8 @@ export default function DetailCar() {
             <div className="ml-6 flex-1">
               <h2 className="text-2xl font-bold mb-2">Nissan GT - R</h2>
               <p className="text-gray-500">
-                NISMO has become the embodiment of Nissan's outstanding performance, inspired by the
-                most unforgiving proving ground, the "race track".
+                NISMO has become the embodiment of Nissan&apos;s outstanding performance, inspired by the
+                most unforgiving proving ground, the &quot;race track&quot;.
               </p>
 
               <div className="mt-4 grid grid-cols-2 gap-4 text-gray-600">
