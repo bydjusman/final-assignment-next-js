@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
+
 export default function Content() {
   const popularCars = [
     {
@@ -145,7 +146,57 @@ export default function Content() {
           <Image src="/car (1).png" alt="Car" width={500} height={300} className="absolute bottom-0 right-36 w-2/5" />
         </div>
       </div>
-      
+
+      <div className="flex flex-col md:flex-row items-center gap-4 mt-8 bg-white p-6 rounded-lg shadow-md">
+        <div className="flex-1">
+          <h3 className="text-lg font-medium mb-2">Pick-Up</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm mb-1">Locations</label>
+              <select className="w-full border rounded-md p-2">
+                <option>Select your city</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm mb-1">Date</label>
+              <input type="date" className="w-full border rounded-md p-2" />
+            </div>
+            <div>
+              <label className="block text-sm mb-1">Time</label>
+              <input type="time" className="w-full border rounded-md p-2" />
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-blue-500 w-16 h-16 flex items-center justify-center rounded-md shadow-lg">
+          <button
+            className="bg-white text-blue-500 w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 10l4-4m0 0l-4-4m4 4H7m-6 4l4 4m0 0l-4 4m4-4h10" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="flex-1">
+          <h3 className="text-lg font-medium mb-2">Drop-Off</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm mb-1">Locations</label>
+              <select className="w-full border rounded-md p-2">
+                <option>Select your city</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm mb-1">Date</label>
+              <input type="date" className="w-full border rounded-md p-2" />
+            </div>
+            <div>
+              <label className="block text-sm mb-1">Time</label>
+              <input type="time" className="w-full border rounded-md p-2" />
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Popular Cars Section */}
       <div className="mb-10">
@@ -211,7 +262,19 @@ export default function Content() {
                 </button>
               </div>
             </div>
+
           ))}
+
+        </div>
+        <div className="flex justify-center mt-6">
+          <Link href="/category">
+            <button
+              className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-md sm:px-6 sm:py-3 sm:text-base"
+              aria-label="Show More"
+            >
+              Show More
+            </button>
+          </Link>
         </div>
       </div>
     </div>
