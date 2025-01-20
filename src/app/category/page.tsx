@@ -182,7 +182,7 @@ export default function Category() {
                 </div>
 
                 <div className="flex justify-center mt-6">
-                    <Link href="/">
+                    <Link href="dashboard">
                         <button
                             className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-md sm:px-6 sm:py-3 sm:text-base"
                             aria-label="Show More"

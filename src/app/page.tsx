@@ -1,8 +1,8 @@
 import React from 'react'
 import Content from './components/content'
 import DetailCar from './components/detailcar'
-import RentalForm from './components/RentalForm'
-import Dashboard from './components/dashboard'
+// import RentalForm from './components/RentalForm'
+
 
 
 const page = () => {
@@ -10,8 +10,7 @@ const page = () => {
     <div>
       <Content/>
       <DetailCar/>
-      <Dashboard/>
-      <RentalForm/>
+      {/* <RentalForm/> */}
     </div>
   )
 }
