@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image"; // Import Next.js Image
+import Image from "next/image"; // Import the Image component
 import Link from "next/link";
 
 const cars = [
